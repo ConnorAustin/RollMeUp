@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour {
     public float radius;
+    GameObject particle;
+
+    void Start()
+    {
+        particle = (GameObject)Resources.Load("Prefabs/Petal");
+    }
 
     public void OnTriggerEnter(Collider c)
     {
+        if (tag == "ConnectedPickup")
+            return;
         var other = c.gameObject;
+        GetComponent<Collider>().isTrigger = false;
 
         // See if we hit something related to the player
         GameObject player;
@@ -39,5 +48,12 @@ public class Pickup : MonoBehaviour {
         tag = "ConnectedPickup";
 
         player.GetComponent<Katamari>().OnPickup(this);
+
+        // Spawn pickup particle
+        for(int i = 0; i < 2; i++)
+        {
+            var p = GameObject.Instantiate(particle);
+            p.transform.position = transform.position;
+        }
     }
 }

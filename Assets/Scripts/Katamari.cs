@@ -9,10 +9,15 @@ public class Katamari : MonoBehaviour {
 
     new Rigidbody rigidbody;
     SphereCollider sphereCollider;
+    float startingRadius;
 
-	void Start () {
+    Transform katamariBall;
+
+    void Start () {
         rigidbody = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
+        startingRadius = sphereCollider.radius;
+        katamariBall = transform.Find("KatamariBall");
     }
 
     public void Move(Vector3 dir) {
@@ -21,6 +26,8 @@ public class Katamari : MonoBehaviour {
 
     public void OnPickup(Pickup pickup) {
         sphereCollider.radius += pickup.radius;
+        katamariBall.localScale = Vector3.one * sphereCollider.radius / startingRadius;
+
         Camera.main.GetComponent<AudioSource>().PlayOneShot(collectSound, 0.1f);
     }
 
