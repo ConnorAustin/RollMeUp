@@ -20,6 +20,10 @@ public class Katamari : MonoBehaviour {
         katamariBall = transform.Find("KatamariBall");
     }
 
+    public float GetSize() {
+        return GetComponent<SphereCollider>().radius;
+    }
+
     public void Move(Vector3 dir) {
         rigidbody.AddForce(dir * speed);
     }
@@ -29,6 +33,7 @@ public class Katamari : MonoBehaviour {
         katamariBall.localScale = Vector3.one * sphereCollider.radius / startingRadius;
 
         Camera.main.GetComponent<AudioSource>().PlayOneShot(collectSound, 0.1f);
+        GameManager.manager.OnPickup(pickup.pickupName);
     }
 
     void UpdateShadow() {
@@ -45,5 +50,5 @@ public class Katamari : MonoBehaviour {
 	
 	void Update () {
         UpdateShadow();
-	}
+    }
 }

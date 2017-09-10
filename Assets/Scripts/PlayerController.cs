@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+        if (GameManager.manager.state != GameState.Playing)
+            return;
+
         var cam = Camera.main;
 
         // Since the camera is tilted either upwards or downwards, the forward direction has a y component

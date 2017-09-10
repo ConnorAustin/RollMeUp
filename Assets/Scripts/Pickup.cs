@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour {
     public float radius;
+    public string pickupName;
     GameObject particle;
 
     void Start()
