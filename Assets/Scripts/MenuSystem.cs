@@ -39,6 +39,7 @@ public class MenuSystem : MonoBehaviour
 
     void Update()
     {
+        
         float realDir = Input.GetAxisRaw("Vertical");
         Debug.Log(realDir);
         int dir = 0;

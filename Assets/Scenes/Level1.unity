@@ -645,12 +645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.005
   pickupName: Pencil
---- !u!114 &702929243 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114309101993282804, guid: 47e1cf486014b994ea7a6419ad36c35d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1565643134}
-  m_Script: {fileID: 11500000, guid: d24d99c1ac2ebcf42a2b757658e57942, type: 3}
 --- !u!1 &815098248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,34 +1362,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 4014059591591712, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014059591591712, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014059591591712, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114040056765304502, guid: 47e1cf486014b994ea7a6419ad36c35d,
+    - target: {fileID: 114058913606687974, guid: 47e1cf486014b994ea7a6419ad36c35d,
         type: 2}
-      propertyPath: katamari
-      value: 
-      objectReference: {fileID: 702929243}
-    - target: {fileID: 4270310506831826, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.85
+      propertyPath: fadingIn
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4270310506831826, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270310506831826, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.24
+    - target: {fileID: 114058913606687974, guid: 47e1cf486014b994ea7a6419ad36c35d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}

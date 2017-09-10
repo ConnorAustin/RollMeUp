@@ -262,7 +262,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.27, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &337290980
 MeshFilter:
@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 337290977}
   m_LocalRotation: {x: -0.7071068, y: -0.7071068, z: 0.0000020489094, w: 0.0000020489094}
-  m_LocalPosition: {x: 10.1, y: -7.81, z: 0.00000049098}
+  m_LocalPosition: {x: 10.1, y: -8.5, z: 0.00000049098}
   m_LocalScale: {x: 16.770412, y: 12.940102, z: 66.90053}
   m_Children: []
   m_Father: {fileID: 0}
@@ -591,6 +591,29 @@ Prefab:
       propertyPath: yOffset
       value: 1.16
       objectReference: {fileID: 0}
+    - target: {fileID: 82128053239009842, guid: 47e1cf486014b994ea7a6419ad36c35d,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82128053239009842, guid: 47e1cf486014b994ea7a6419ad36c35d,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270310506831826, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.546
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270310506831826, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.562
+      objectReference: {fileID: 0}
+    - target: {fileID: 82376188944492066, guid: 47e1cf486014b994ea7a6419ad36c35d,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9949330de31a11140abb326dafbbc110, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47e1cf486014b994ea7a6419ad36c35d, type: 2}
   m_IsPrefabParent: 0

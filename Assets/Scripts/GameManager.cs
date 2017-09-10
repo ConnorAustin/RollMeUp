@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
     public GameObject timeout;
     public GameObject pause;
     public AudioClip pauseSound;
+    public AudioSource music;
 
     float startingSize;
     string[] items;
@@ -96,11 +97,13 @@ public class GameManager : MonoBehaviour {
         switch (state)
         {
             case GameState.Playing:
+                music.Play();
                 Time.timeScale = 1;
                 pause.SetActive(false);
                 GetComponent<MenuSystem>().enabled = false;
                 break;
             case GameState.Paused:
+                music.Pause();
                 Time.timeScale = 0;
                 pause.SetActive(true);
                 GetComponent<MenuSystem>().enabled = true;
@@ -119,7 +122,9 @@ public class GameManager : MonoBehaviour {
                 GameOverController.percentComplete = (katamari.GetSize() - startingSize) / desiredSizeIncrease;
                 GameOverController.failedLevel = SceneManager.GetActiveScene().buildIndex;
 
-                GetComponent<FadeOut>().enabled = true;
+                var fade = GetComponent<FadeOut>();
+                fade.enabled = true;
+                fade.fadingIn = false;
 
                 Invoke("NextScreen", 4);
                 winMessage.SetActive(false);
@@ -194,6 +199,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.Won:
             case GameState.GameOver:
+                music.volume = Mathf.Max(0, music.volume - 0.5f * Time.deltaTime);
                 break;
         }
     }
