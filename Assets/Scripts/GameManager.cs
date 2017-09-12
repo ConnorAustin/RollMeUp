@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
 
     bool infiniteTime;
 
-    void Start()
+    void Awake()
     {
         if (minutes < 0)
             infiniteTime = true;

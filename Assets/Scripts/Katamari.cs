@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Katamari : MonoBehaviour {
+    const float pickupRewardRatio = 0.03f; // How much radius to reward for picking up an item of a certain radius?
+    const float pickupInfluence = 0.03f; // How much of all the items radiuses on us do we also add to the size?
+    const float pickupSpeedIncrease = 0.005f; // How much radius increases speed
+
     public float speed;
     public Transform shadow;
     public AudioClip collectSound;
@@ -12,6 +16,7 @@ public class Katamari : MonoBehaviour {
     float startingRadius;
 
     Transform katamariBall;
+    float totalPickupSize = 0;
 
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -21,23 +26,27 @@ public class Katamari : MonoBehaviour {
     }
 
     public float GetSize() {
-        return GetComponent<SphereCollider>().radius;
+        return GetComponent<SphereCollider>().radius + totalPickupSize;
     }
 
     public void Move(Vector3 dir) {
-        rigidbody.AddForce(dir * speed);
+        rigidbody.AddTorque(dir * speed, ForceMode.Impulse);
     }
 
     public void OnPickup(Pickup pickup) {
-        sphereCollider.radius += pickup.radius;
+        sphereCollider.radius += pickup.radius * pickupRewardRatio;
         katamariBall.localScale = Vector3.one * sphereCollider.radius / startingRadius;
+        totalPickupSize += pickup.radius * pickupInfluence;
+        speed += pickup.radius * pickupSpeedIncrease;
 
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(collectSound, 0.1f);
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(collectSound, 0.3f);
         GameManager.manager.OnPickup(pickup.pickupName);
+
+        Debug.Log(GetSize());
     }
 
     void UpdateShadow() {
-        int groundMask = LayerMask.GetMask("Ground");
+        int groundMask = LayerMask.GetMask("Default");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 20, groundMask)) {
             shadow.position = hit.point;

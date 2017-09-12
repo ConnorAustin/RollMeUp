@@ -53,9 +53,12 @@ public class PlayerController : MonoBehaviour {
         {
             float Xavg = (LeftX + RightX) / 2.0f;
             float Yavg = (LeftY + RightY) / 2.0f;
+            
+            Vector3 right = cam.transform.right * -Yavg;
+            Vector3 forward = forwardDir * -Xavg;
 
-            Vector3 right = forwardDir * -Yavg;
-            Vector3 forward = cam.transform.right * Xavg;
+            // Vector3 right = forwardDir * -Yavg;
+            // Vector3 forward = cam.transform.right * Xavg;
             Vector3 dir = right + forward;
             dir.Normalize();
             katamari.Move(dir);

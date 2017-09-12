@@ -26,7 +26,7 @@ public class FadeOut : MonoBehaviour {
         {
             dir = -1;
         }
-        lerp += dir * 0.3f * Time.deltaTime;
+        lerp += dir * 0.7f * Time.deltaTime;
         lerp = Mathf.Clamp01(lerp);
 
         radius = Mathf.Lerp(0, maxRadius, lerp);

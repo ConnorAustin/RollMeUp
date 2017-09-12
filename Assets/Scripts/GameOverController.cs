@@ -14,7 +14,7 @@ public class GameOverController : MonoBehaviour {
 	float yourCircleSizeLerp = 0; // Current lerp amount for 
 	bool isGameOver = false;
 
-	void Start () {
+	void Awake () {
 		yourCirlce = transform.Find ("YourCircle").GetComponent<RectTransform>();
 		percent = transform.Find ("Percent").GetComponent<Text>();
         Invoke("GameOver", 4.2f);
