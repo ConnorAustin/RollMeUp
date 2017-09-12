@@ -414,5 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590e14319729fdd47bf47eddaaef99a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5
+  radius: 2
   pickupName: Handheld
+  removeColliderOnPickup: 0
